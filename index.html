@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albi Bozha | Hacking CV</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            scroll-behavior: smooth;
+            background-color: #000;
+            color: #00FF41;
+            background-image: 
+                linear-gradient(rgba(0, 255, 65, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 65, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+            overflow-x: hidden;
+        }
+        .glow-text {
+            text-shadow: 0 0 8px #00FF41, 0 0 10px #00FF41;
+        }
+        .glow-box {
+            box-shadow: 0 0 15px #00FF41;
+            border: 1px solid #00FF41;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .typewriter {
+            border-right: 3px solid #00FF41;
+            animation: blink 0.75s step-end infinite, matrixRain 5s linear infinite;
+        }
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: #00FF41; }
+        }
+        @keyframes matrixRain {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 20px; }
+        }
+        .matrix-char {
+            animation: fade 1s infinite alternate;
+            display: inline-block;
+        }
+        @keyframes fade {
+            0% { opacity: 0.2; }
+            100% { opacity: 1; }
+        }
+        .terminal-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        .terminal-effect::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                to bottom,
+                transparent,
+                rgba(0, 255, 65, 0.1) 50%,
+                transparent
+            );
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full bg-gray-900/80 backdrop-blur-sm z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-green-500 glow-text">Albi Bozha</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="hover:text-green-500 transition">About</a>
+                <a href="#skills" class="hover:text-green-500 transition">Skills</a>
+                <a href="#experience" class="hover:text-green-500 transition">Experience</a>
+                <a href="#projects" class="hover:text-green-500 transition">Projects</a>
+                <a href="#contact" class="hover:text-green-500 transition">Contact</a>
+            </div>
+            <button class="md:hidden text-green-500">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center bg-[url('https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg')] bg-cover bg-center relative">
+        <div class="absolute inset-0 bg-black/70"></div>
+        <div class="container mx-auto px-6 z-10 text-center">
+            <div class="w-32 h-32 mx-auto rounded-full border-4 border-green-500 mb-6 overflow-hidden">
+                <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg" alt="Albi Bozha" class="w-full h-full object-cover">
+            </div>
+            <h1 class="text-5xl md:text-6xl font-bold mb-4 text-green-500 glow-text terminal-effect">Albi Bozha</h1>
+            <h2 class="text-2xl md:text-3xl mb-8 typewriter inline-block terminal-effect" id="matrixTitle"></h2>
+            <script>
+                const matrixChars = "01アルビボザサイバーセキュリティハッカー開発者";
+                const titleText = "Full-Stack Developer & Security Specialist";
+                const titleElement = document.getElementById('matrixTitle');
+                
+                function matrixTitleEffect() {
+                    let output = '';
+                    for (let i = 0; i < titleText.length; i++) {
+                        if (Math.random() > 0.7) {
+                            output += `<span class="matrix-char" style="animation-delay: ${i*0.1}s">${matrixChars[Math.floor(Math.random()*matrixChars.length)]}</span>`;
+                        } else {
+                            output += `<span class="matrix-char" style="animation-delay: ${i*0.1}s">${titleText[i]}</span>`;
+                        }
+                    }
+                    titleElement.innerHTML = output;
+                }
+                
+                setInterval(matrixTitleEffect, 100);
+                matrixTitleEffect();
+            </script>
+            <div class="flex justify-center space-x-4">
+                <a href="#about" class="px-6 py-3 bg-green-500 text-gray-900 font-semibold rounded-full hover:bg-green-400 transition">Explore</a>
+                <a href="#contact" class="px-6 py-3 border-2 border-green-500 text-green-500 font-semibold rounded-full hover:bg-green-500/10 transition">Contact</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-green-500 glow-text text-center">About Me</h2>
+            <div class="max-w-4xl mx-auto">
+                <p class="text-lg mb-8 leading-relaxed">
+                    Passionate full-stack developer with 5+ years of experience in building secure web applications and blockchain solutions. 
+                    Specialized in cybersecurity with a focus on penetration testing and vulnerability assessment. 
+                    Strong background in decentralized technologies and smart contract development.
+                    Telecommunications expert with hands-on experience in eSIM provisioning, VoLTE implementation,
+                    and 5G network architectures.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#" class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-green-500 hover:bg-green-500 hover:text-gray-900 transition">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-green-500 hover:bg-green-500 hover:text-gray-900 transition">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-green-500 hover:bg-green-500 hover:text-gray-900 transition">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-green-500 hover:bg-green-500 hover:text-gray-900 transition">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-green-500 glow-text text-center">Technical Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Skill 1 -->
+                <div class="bg-gray-900 p-6 rounded-lg glow-box">
+                    <div class="flex items-center mb-4">
+                        <i class="fab fa-js text-green-500 text-2xl mr-3"></i>
+                        <h3 class="text-xl font-semibold">JavaScript/TypeScript</h3>
+                    </div>
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mb-2">
+                        <div class="bg-green-500 h-2.5 rounded-full" style="width: 95%"></div>
+                    </div>
+                    <p class="text-gray-400">Advanced knowledge of modern JS/TS, including ES6+ features and type systems.</p>
+                </div>
+
+                <!-- Skill 2 -->
+                <div class="bg-gray-900 p-6 rounded-lg glow-box">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-shield-alt text-green-500 text-2xl mr-3"></i>
+                        <h3 class="text-xl font-semibold">Cybersecurity</h3>
+                    </div>
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mb-2">
+                        <div class="bg-green-500 h-2.5 rounded-full" style="width: 90%"></div>
+                    </div>
+                    <p class="text-gray-400">Penetration testing, vulnerability assessment, and secure coding practices.</p>
+                </div>
+
+                <!-- Skill 3 -->
+                <div class="bg-gray-900 p-6 rounded-lg glow-box">
+                    <div class="flex items-center mb-4">
+                        <i class="fab fa-ethereum text-green-500 text-2xl mr-3"></i>
+                        <h3 class="text-xl font-semibold">Blockchain</h3>
+                    </div>
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mb-2">
+                        <div class="bg-green-500 h-2.5 rounded-full" style="width: 85%"></div>
+                    </div>
+                    <p class="text-gray-400">Smart contract development with Solidity and Web3.js/ethers.js integration.</p>
+                </div>
+
+                <!-- Skill 4 -->
+                <div class="bg-gray-900 p-6 rounded-lg glow-box">
+                    <div class="flex items-center mb-4">
+                        <i class="fab fa-react text-green-500 text-2xl mr-3"></i>
+                        <h3 class="text-xl font-semibold">React/Next.js</h3>
+                    </div>
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mb-2">
+                        <div class="bg-green-500 h-2.5 rounded-full" style="width: 90%"></div>
+                    </div>
+                    <p class="text-gray-400">Building performant, scalable frontend applications with modern React ecosystem.</p>
+                </div>
+
+                <!-- Skill 5 -->
+                <div class="bg-gray-900 p-6 rounded-lg glow-box">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-server text-green-500 text-2xl mr-3"></i>
+                        <h3 class="text-xl font-semibold">Backend Development</h3>
+                    </div>
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mb-2">
+                        <div class="bg-green-500 h-2.5 rounded-full" style="width: 80%"></div>
+                    </div>
+                    <p class="text-gray-400">Node.js, Express, Django, and database design with PostgreSQL/MongoDB.</p>
+                </div>
+
+                <!-- Skill 6 -->
+                <div class="bg-gray-900 p-6 rounded-lg glow-box">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-code text-green-500 text-2xl mr-3"></i>
+                        <h3 class="text-xl font-semibold">Other Technologies</h3>
+                    </div>
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mb-2">
+                        <div class="bg-green-500 h-2.5 rounded-full" style="width: 75%"></div>
+                    </div>
+                    <p class="text-gray-400">Docker, Kubernetes, CI/CD pipelines, and cloud platforms (AWS, GCP).</p>
+                </div>
+
+                <!-- Skill 7 - Telecommunications -->
+                <div class="bg-gray-900 p-6 rounded-lg glow-box">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-sim-card text-green-500 text-2xl mr-3"></i>
+                        <h3 class="text-xl font-semibold">Telecommunications</h3>
+                    </div>
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mb-2">
+                        <div class="bg-green-500 h-2.5 rounded-full" style="width: 85%"></div>
+                    </div>
+                    <p class="text-gray-400">eSIM provisioning, VoLTE implementation, IMS core networks, and 5G SA/NSA architectures.</p>
+                </div>
+
+                <!-- Skill 8 - AI/ML -->
+                <div class="bg-gray-900 p-6 rounded-lg glow-box">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-robot text-green-500 text-2xl mr-3"></i>
+                        <h3 class="text-xl font-semibold">AI & Machine Learning</h3>
+                    </div>
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mb-2">
+                        <div class="bg-green-500 h-2.5 rounded-full" style="width: 80%"></div>
+                    </div>
+                    <p class="text-gray-400">LLMs, Computer Vision, TensorFlow, PyTorch, NLP, and generative AI applications.</p>
+                </div>
+
+                <!-- Skill 9 - IoT/Electronics -->
+                <div class="bg-gray-900 p-6 rounded-lg glow-box">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-microchip text-green-500 text-2xl mr-3"></i>
+                        <h3 class="text-xl font-semibold">IoT & Electronics</h3>
+                    </div>
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mb-2">
+                        <div class="bg-green-500 h-2.5 rounded-full" style="width: 90%"></div>
+                    </div>
+                    <p class="text-gray-400">Raspberry Pi, Arduino, ESP32, CCTV systems, alarm systems, and custom PCB design.</p>
+                </div>
+
+                <!-- Skill 10 - Security Systems -->
+                <div class="bg-gray-900 p-6 rounded-lg glow-box">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-shield-alt text-green-500 text-2xl mr-3"></i>
+                        <h3 class="text-xl font-semibold">Security Systems</h3>
+                    </div>
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mb-2">
+                        <div class="bg-green-500 h-2.5 rounded-full" style="width: 95%"></div>
+                    </div>
+                    <p class="text-gray-400">Physical security systems, biometrics, intrusion detection, and access control systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-green-500 glow-text text-center">Professional Experience</h2>
+            <div class="max-w-3xl mx-auto">
+                <!-- Experience 1 -->
+                <div class="mb-12">
+                    <div class="flex items-start">
+                        <div class="w-3 h-3 bg-green-500 rounded-full mt-2 mr-4"></div>
+                        <div>
+                            <h3 class="text-xl font-semibold">Senior Security Engineer</h3>
+                            <p class="text-green-500 mb-2">BlockSecure | 2021 - Present</p>
+                            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                                <li>Led security audits for 15+ blockchain projects, identifying critical vulnerabilities</li>
+                                <li>Developed AI-powered security testing tools using TensorFlow that reduced manual review time by 40%</li>
+                                <li>Implemented smart CCTV systems with facial recognition using Raspberry Pi and OpenCV</li>
+                                <li>Designed IoT-based intrusion detection systems with Arduino and LoRaWAN connectivity</li>
+                                <li>Created ML models for anomaly detection in network traffic with 99.2% accuracy</li>
+                                <li>Developed voice-controlled home automation systems with NLP integration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="mb-12">
+                    <div class="flex items-start">
+                        <div class="w-3 h-3 bg-green-500 rounded-full mt-2 mr-4"></div>
+                        <div>
+                            <h3 class="text-xl font-semibold">Full-Stack Developer</h3>
+                            <p class="text-green-500 mb-2">TechNova Solutions | 2018 - 2021</p>
+                            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                                <li>Built AI-powered surveillance systems with real-time object detection</li>
+                                <li>Developed smart alarm systems with Raspberry Pi and machine learning</li>
+                                <li>Created IoT device management platform supporting 10,000+ devices</li>
+                                <li>Implemented computer vision for automated security monitoring</li>
+                                <li>Optimized embedded systems performance, reducing power consumption by 35%</li>
+                                <li>Designed custom PCBs for industrial IoT sensor networks</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 3 -->
+                <div class="mb-12">
+                    <div class="flex items-start">
+                        <div class="w-3 h-3 bg-green-500 rounded-full mt-2 mr-4"></div>
+                        <div>
+                            <h3 class="text-xl font-semibold">Cybersecurity Intern</h3>
+                            <p class="text-green-500 mb-2">SecureNet Inc. | Summer 2017</p>
+                            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                                <li>Assisted in vulnerability assessments for client networks</li>
+                                <li>Developed scripts to automate security monitoring tasks</li>
+                                <li>Participated in incident response team for security breaches</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-green-500 glow-text text-center">Featured Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-gray-900 rounded-lg overflow-hidden glow-box hover:glow-box-lg transition-all duration-300">
+                    <div class="h-48 bg-[url('https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg')] bg-cover bg-center"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">SecureChain Audit Tool</h3>
+                        <p class="text-gray-400 mb-4">Automated smart contract security analyzer with 50+ vulnerability checks.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-gray-800 text-green-500 text-sm rounded-full">Solidity</span>
+                            <span class="px-3 py-1 bg-gray-800 text-green-500 text-sm rounded-full">Node.js</span>
+                            <span class="px-3 py-1 bg-gray-800 text-green-500 text-sm rounded-full">Security</span>
+                        </div>
+                        <a href="#" class="text-green-500 hover:text-green-400 flex items-center">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-gray-900 rounded-lg overflow-hidden glow-box hover:glow-box-lg transition-all duration-300">
+                    <div class="h-48 bg-[url('https://images.pexels.com/photos/1181673/pexels-photo-1181673.jpeg')] bg-cover bg-center"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">DeFi Yield Optimizer</h3>
+                        <p class="text-gray-400 mb-4">Automated yield farming strategy executor with risk management.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-gray-800 text-green-500 text-sm rounded-full">Web3.js</span>
+                            <span class="px-3 py-1 bg-gray-800 text-green-500 text-sm rounded-full">React</span>
+                            <span class="px-3 py-1 bg-gray-800 text-green-500 text-sm rounded-full">Ethereum</span>
+                        </div>
+                        <a href="#" class="text-green-500 hover:text-green-400 flex items-center">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-gray-900 rounded-lg overflow-hidden glow-box hover:glow-box-lg transition-all duration-300">
+                    <div class="h-48 bg-[url('https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg')] bg-cover bg-center"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Threat Intelligence Dashboard</h3>
+                        <p class="text-gray-400 mb-4">Real-time visualization of cybersecurity threats with alert system.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-gray-800 text-green-500 text-sm rounded-full">Python</span>
+                            <span class="px-3 py-1 bg-gray-800 text-green-500 text-sm rounded-full">Django</span>
+                            <span class="px-3 py-1 bg-gray-800 text-green-500 text-sm rounded-full">Elasticsearch</span>
+                        </div>
+                        <a href="#" class="text-green-500 hover:text-green-400 flex items-center">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-green-500 glow-text text-center">Get In Touch</h2>
+            <div class="max-w-2xl mx-auto">
+                <form id="contactForm" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-400 mb-1">Name</label>
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-white" placeholder="Your name">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-400 mb-1">Email</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-white" placeholder="your.email@example.com">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-400 mb-1">Message</label>
+                        <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-white" placeholder="Your message"></textarea>
+                    </div>
+                    <div id="formResponse" class="hidden"></div>
+                    <button type="submit" class="w-full px-6 py-3 bg-green-500 text-gray-900 font-semibold rounded-lg hover:bg-green-400 transition focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900">
+                        Send Message
+                    </button>
+                </form>
+                <script>
+                    document.getElementById('contactForm').addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        const form = e.target;
+                        const formData = new FormData(form);
+                        const button = form.querySelector('button[type="submit"]');
+                        const responseDiv = document.getElementById('formResponse');
+                        
+                        button.disabled = true;
+                        button.innerHTML = 'Sending...';
+                        responseDiv.classList.add('hidden');
+                        
+                        fetch('http://localhost:3000/send-email', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(Object.fromEntries(formData))
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if(data.success) {
+                                responseDiv.textContent = 'Message sent successfully!';
+                                responseDiv.className = 'p-4 mb-4 text-green-500 bg-green-500/10 rounded-lg';
+                                form.reset();
+                            } else {
+                                responseDiv.textContent = 'Error: ' + data.message;
+                                responseDiv.className = 'p-4 mb-4 text-red-500 bg-red-500/10 rounded-lg';
+                            }
+                            responseDiv.classList.remove('hidden');
+                        })
+                        .catch(error => {
+                            responseDiv.textContent = 'Error sending message. Please try again later.';
+                            responseDiv.className = 'p-4 mb-4 text-red-500 bg-red-500/10 rounded-lg';
+                            responseDiv.classList.remove('hidden');
+                        })
+                        .finally(() => {
+                            button.disabled = false;
+                            button.innerHTML = 'Send Message';
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-800">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400">© 2023 Albi Bozha. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="#" class="text-gray-400 hover:text-green-500 transition">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-green-500 transition">
+                    <i class="fab fa-linkedin-in text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-green-500 transition">
+                    <i class="fab fa-twitter text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-green-500 transition">
+                    <i class="fas fa-envelope text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle functionality would go here
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simple typewriter effect
+            const phrases = [
+                "Full-Stack Developer",
+                "Security Specialist",
+                "Blockchain Engineer",
+                "Open Source Contributor"
+            ];
+            let currentPhrase = 0;
+            const typewriterElement = document.querySelector('.typewriter');
+            
+            function cyclePhrases() {
+                currentPhrase = (currentPhrase + 1) % phrases.length;
+                typewriterElement.textContent = phrases[currentPhrase];
+            }
+            
+            setInterval(cyclePhrases, 3000);
+        });
+    </script>
+    <div id="matrixRain"></div>
+    <script>
+        // Matrix rain effect
+        const chars = "01アルビボザハッカーサイバーセキュリティ開発者";
+        const matrix = document.getElementById('matrixRain');
+        
+        matrix.style.position = 'fixed';
+        matrix.style.top = '0';
+        matrix.style.left = '0';
+        matrix.style.width = '100%';
+        matrix.style.height = '100%';
+        matrix.style.pointerEvents = 'none';
+        matrix.style.zIndex = '-1';
+        
+        const fontSize = 14;
+        const columns = Math.floor(window.innerWidth / fontSize);
+        const drops = Array(columns).fill(1);
+        
+        function drawMatrix() {
+            matrix.innerHTML = '';
+            for (let i = 0; i < drops.length; i++) {
+                const char = chars[Math.floor(Math.random() * chars.length)];
+                const opacity = Math.random();
+                matrix.innerHTML += `<span style="
+                    color: rgba(0, 255, 65, ${opacity});
+                    position: absolute;
+                    top: ${drops[i] * fontSize}px;
+                    left: ${i * fontSize}px;
+                    font-size: ${fontSize}px;
+                ">${char}</span>`;
+                
+                if (drops[i] * fontSize > window.innerHeight && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+        
+        setInterval(drawMatrix, 50);
+    </script>
+</body>
+</html>
